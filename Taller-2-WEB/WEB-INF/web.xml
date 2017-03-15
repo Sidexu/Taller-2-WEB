@@ -11,43 +11,28 @@
   <servlet>
     <servlet-name>Servlet_Dest</servlet-name>
     <servlet-class>servlets.Servlet_Dest</servlet-class>
-     <init-param>	
-	   <param-name>ipservidor</param-name>
-	   <param-value>127.0.0.1</param-value>
-	</init-param>
-	
-	 <init-param>	 
-	    <param-name>puerto</param-name>
-	    <param-value>1099</param-value>
-	</init-param>
+     <init-param> 
+    <param-name>ipservidor</param-name>
+    <param-value>127.0.0.1</param-value>
+ </init-param>
+ 
+  <init-param>  
+     <param-name>puerto</param-name>
+     <param-value>1099</param-value>
+ </init-param>
   </servlet>
  
   <servlet-mapping>
-    <servlet-name>ingreso_dest</servlet-name>
+    <servlet-name>Servlet_Dest</servlet-name>
     <url-pattern>/Ingreso_Dest</url-pattern>
   </servlet-mapping>
 
   <servlet>
     <servlet-name>Servlet_Precio</servlet-name>
     <servlet-class>servlets.Servlet_Precio</servlet-class>
-     <init-param>	
-	   <param-name>ipservidor</param-name>
-	   <param-value>127.0.0.1</param-value>
-	</init-param>
-	
-	 <init-param>	 
-	    <param-name>puerto</param-name>
-	    <param-value>1099</param-value>
-	</init-param>
-  </servlet>
+     <init-param> 
+    <param-name>ipservidor</param-name>
+    <param-value>127.0.0.1</param-value>
+ </init-param>
  
-  <servlet-mapping>
-    <servlet-name>ingreso_precio</servlet-name>
-    <url-pattern>/Ingreso_Precio</url-pattern>
-  </servlet-mapping>
-
-  <welcome-file-list>
-	<welcome-file>/inicio.jsp</welcome-file>
-  </welcome-file-list>
-
-</web-app>
+  <init-param>  
