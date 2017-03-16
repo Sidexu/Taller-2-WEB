@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
+    version="2.4">
+
+  <description> Mensajeador web de ejemplo </description>
+  <display-name> Mensajeador web de ejemplo </display-name>
+
+  <servlet>
+    <servlet-name>Servlet_Dest</servlet-name>
+    <servlet-class>servlets.Servlet_Dest</servlet-class>
+     <init-param> 
+    <param-name>ipservidor</param-name>
+    <param-value>127.0.0.1</param-value>
+ </init-param>
+ 
+  <init-param>  
+     <param-name>puerto</param-name>
+     <param-value>1099</param-value>
+ </init-param>
+  </servlet>
+ 
+  <servlet-mapping>
+    <servlet-name>Servlet_Dest</servlet-name>
+    <url-pattern>/Ingreso_Dest</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>Servlet_Precio</servlet-name>
+    <servlet-class>servlets.Servlet_Precio</servlet-class>
+     <init-param> 
+    <param-name>ipservidor</param-name>
+    <param-value>127.0.0.1</param-value>
+ </init-param>
+ 
+  <init-param>  

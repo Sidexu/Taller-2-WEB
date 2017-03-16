@@ -15,10 +15,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import valueObjects.MensajeDest;
-import valueObjects.VOExcursionDisp;
-import Excepciones.ExcepcionRMI;
-import auxiliares.IFachada;
+import defaultP.IFachada;
+import Logica.valueObjects.VOExcursionDisp;
 
 public class Servlet_Dest extends HttpServlet
 {
@@ -42,42 +40,48 @@ public class Servlet_Dest extends HttpServlet
 	    	ServletContext context = super.getServletContext();
 		    String ipservidor = super.getInitParameter("ipservidor");
 			String puerto = super.getInitParameter("puerto"); 
-			IFachada ifach = null;		
+				
 
 				try {
-					ifach = (IFachada) Naming.lookup("//" + ipservidor + ":" + puerto + "/Fachada");
+					String ruta = "//" + ipservidor + ":" + puerto + "/obj";
+					IFachada ifach = (IFachada) Naming.lookup(ruta);
 					try {
 						voex = ifach.excursionesXDestino(destino);
 						ArrayList<VOExcursionDisp> arr= new ArrayList<VOExcursionDisp>();
-						for(int i=0;i<voex.length;i++){
-							arr.add(voex[i]);
-						}
-						context.setAttribute("arregloDest",arr);
+						if(voex.length==0){
+							error=true;
+							msgError = "No hay excursiones con ese destino";
+						}else{
+							for(int i=0;i<voex.length;i++){
+								arr.add(voex[i]);
+							}
+							
+							context.setAttribute("arregloDest",arr);
+						}						
 					} catch (RemoteException e) {
 						error = true;
 						msgError = "Error RMI";
 					}
 				} catch (MalformedURLException  e) {
 					error = true;
-					msgError = "Error RMI2";
+					msgError = e.getMessage();
 				}catch(RemoteException e){
 					error = true;
-					msgError = "Error RMI3";
+					msgError = e.getMessage();
 				}catch(NotBoundException e){
 					error = true;
-					msgError = "Error RMI4";
+					msgError = e.getMessage();
 				}
 					
 	    }
 	    	
 		
         HttpSession session = req.getSession();
-	    MensajeDest datosDest = new MensajeDest(destino);
 	    if (!error )
 	    {		    
 		    synchronized (session)
 		    {
-		        session.setAttribute("datosDest",datosDest);    
+		        session.setAttribute("destino",destino);    
 		    }		    
 	    }else{
 		    synchronized (session)
