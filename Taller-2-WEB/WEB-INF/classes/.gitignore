@@ -1,4 +1,13 @@
+<<<<<<< HEAD
 /auxiliares
 /servlets
 /valueObjects
 /Excepciones
+=======
+/servlets
+/auxiliares
+/valueObjects
+/Excepciones
+/logica
+/Logica
+>>>>>>> refs/heads/lo

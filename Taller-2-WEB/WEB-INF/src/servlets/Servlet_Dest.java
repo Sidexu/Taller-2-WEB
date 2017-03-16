@@ -5,6 +5,7 @@ import java.net.MalformedURLException;
 import java.rmi.Naming;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
@@ -27,7 +28,7 @@ public class Servlet_Dest extends HttpServlet
 	{
 	    // obtengo los datos del Request
 	    String destino = req.getParameter("destino");
-
+	    
 	    // valido los datos ingresados
 	    boolean error = false;
 	    String msgError = new String("Arreglo vacio");
@@ -36,24 +37,35 @@ public class Servlet_Dest extends HttpServlet
 	    {
 			error = true;
 			msgError = "El destino no puede estar vacio";
-	    }else{
+	    }
+	    else{
 	    	ServletContext context = super.getServletContext();
 		    String ipservidor = super.getInitParameter("ipservidor");
 			String puerto = super.getInitParameter("puerto"); 
-
 			IFachada ifach = null;		
 
-
 				try {
-					ifach = (IFachada) Naming.lookup("//" + ipservidor + ":" + puerto + "/obj");
+					ifach = (IFachada) Naming.lookup("//" + ipservidor + ":" + puerto + "/Fachada");
 					try {
 						voex = ifach.excursionesXDestino(destino);
-						context.setAttribute("arregloDest",voex);
+						ArrayList<VOExcursionDisp> arr= new ArrayList<VOExcursionDisp>();
+						for(int i=0;i<voex.length;i++){
+							arr.add(voex[i]);
+						}
+						context.setAttribute("arregloDest",arr);
 					} catch (RemoteException e) {
+						error = true;
 						msgError = "Error RMI";
 					}
-				} catch (MalformedURLException | RemoteException | NotBoundException e) {
-					msgError = "Error RMI";
+				} catch (MalformedURLException  e) {
+					error = true;
+					msgError = "Error RMI2";
+				}catch(RemoteException e){
+					error = true;
+					msgError = "Error RMI3";
+				}catch(NotBoundException e){
+					error = true;
+					msgError = "Error RMI4";
 				}
 					
 	    }
@@ -61,7 +73,7 @@ public class Servlet_Dest extends HttpServlet
 		
         HttpSession session = req.getSession();
 	    MensajeDest datosDest = new MensajeDest(destino);
-	    if (!error || voex.length!=0)
+	    if (!error )
 	    {		    
 		    synchronized (session)
 		    {
