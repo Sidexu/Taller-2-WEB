@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=Cp1252"/>
-<title></title>
+<title>Listado de precios</title>
 </head>
 <body>
 </body>

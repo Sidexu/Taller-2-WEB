@@ -5,13 +5,33 @@
     xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
     version="2.4">
 
-  <description> Mensajeador web de ejemplo </description>
-  <display-name> Mensajeador web de ejemplo </display-name>
+  <description> Pagina excursiones del Diablo </description>
+  <display-name> Pagina excursiones del Diablo </display-name>
 
-  <servlet>
+ <servlet>
     <servlet-name>Servlet_Dest</servlet-name>
     <servlet-class>servlets.Servlet_Dest</servlet-class>
-     <init-param> 
+
+ <init-param> 
+    <param-name>ipservidor</param-name>
+    <param-value>127.0.0.1</param-value>
+ </init-param>
+ 
+ <init-param>  
+     <param-name>puerto</param-name>
+     <param-value>1099</param-value>
+ </init-param>
+ </servlet>
+ 
+ <servlet-mapping>
+    <servlet-name>Servlet_Dest</servlet-name>
+    <url-pattern>/Servlet_Dest</url-pattern>
+ </servlet-mapping>
+ 
+  <servlet>
+    <servlet-name>Servlet_Precio</servlet-name>
+    <servlet-class>servlets.Servlet_Precio</servlet-class>
+ <init-param> 
     <param-name>ipservidor</param-name>
     <param-value>127.0.0.1</param-value>
  </init-param>
@@ -20,19 +40,15 @@
      <param-name>puerto</param-name>
      <param-value>1099</param-value>
  </init-param>
-  </servlet>
- 
-  <servlet-mapping>
-    <servlet-name>Servlet_Dest</servlet-name>
-    <url-pattern>/Ingreso_Dest</url-pattern>
-  </servlet-mapping>
+ </servlet>
 
-  <servlet>
+ <servlet-mapping>
     <servlet-name>Servlet_Precio</servlet-name>
-    <servlet-class>servlets.Servlet_Precio</servlet-class>
-     <init-param> 
-    <param-name>ipservidor</param-name>
-    <param-value>127.0.0.1</param-value>
- </init-param>
- 
-  <init-param>  
+    <url-pattern>/Servlet_Precio</url-pattern>
+ </servlet-mapping>
+  
+  <welcome-file-list>
+ <welcome-file>/inicio.jsp</welcome-file>
+  </welcome-file-list>
+
+</web-app>
