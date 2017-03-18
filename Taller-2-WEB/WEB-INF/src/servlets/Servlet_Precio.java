@@ -17,7 +17,6 @@ import javax.servlet.http.HttpSession;
 
 import com.sun.xml.internal.ws.transport.http.HttpAdapter;
 
-import valueObjects.MensajeDest;
 import Logica.valueObjects.VOExcursionDisp;
 import defaultP.IFachada;
 
@@ -72,11 +71,11 @@ public class Servlet_Precio extends HttpServlet{
 							}						
 						} catch (RemoteException e) {
 							error = true;
-							msgError = "Error RMI";
+							msgError = "Error en la conexión (RMI)";
 						}
 					} catch (RemoteException | MalformedURLException  | NotBoundException e) {
 						error = true;
-						msgError = "Error en la conexión";
+						msgError = "Error en la conexión (RMI)";
 					}
 	    	}catch (NumberFormatException e){
 	    		error = true;
@@ -88,7 +87,7 @@ public class Servlet_Precio extends HttpServlet{
 	    	
 		
         HttpSession session = req.getSession();
-	    MensajeDest datosPrec = new MensajeDest("desde: "+precio1+" hasta: "+precio2);
+	    String  datosPrec= "desde "+precio1+" hasta "+precio2;
 	    if (!error )
 	    {		    
 		    synchronized (session)

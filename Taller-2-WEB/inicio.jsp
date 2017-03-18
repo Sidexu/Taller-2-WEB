@@ -11,16 +11,15 @@
 
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
+	<style>
+	p {
+	font-family: sans-serif; 
+	font-style: italic;
+	}
+	</style>
   </head>
   <body>
-  	<div class="row" style="margin-left: 10px;">
+  	<div class="row" style="background: #EEF2FC; margin-left: auto;">
   	
   		<h1> Excursiones del Diablo</h1>
   
@@ -34,16 +33,31 @@
     
     
     <div class="row">
-  		<div class="col-md-6 col-md-offset-3">
-  			<ul class="nav nav-tabs">
+  		<div class="col-md-4"></div>	
+  			<ul class="nav nav-tabs" style="background: #EEF2FC;">
 			  <li class="active">
 			    <a href="#">Home</a>
 			  </li>
 			  <li><a href='ingreso_precio.jsp'>Excursiones por precio</a></li>
 			  <li><a href='ingreso_dest.jsp'>Excursiones por destino</a></li>
-			  
 			</ul>
-  		</div>	
+  	</div>
+  	<div class="row">
+  		<div class="col-md-6 col-md-offset-3">	
+  			<br>
+  			<h4><strong>Quienes somos</strong></h4>
+  			<br> 
+  			<p>Somos una empresa de transporte que realiza paseos tanto por tierra como por mar. </p>
+  			<p>Contamos con una flota de ómnibus llamados "Duck boats", los cuales son únicos en nuestro país. </p> 
+  			<br>
+  			<h4><strong>Nuestra mision y vision</strong></h4>
+  			<br> 
+  			<p>Ofrecer tanto a turistas como a residentes, paseos únicos y recreativos.</p>
+  			<p>Convertirnos en uno de los paseos típicos de la zona de nuestro departamento Rocha, Uruguay.</p>
+  			<p>Posicionarnos como una empresa seria y responsable, cuya garantía sea la satisfacción del cliente. </p>
+  			<br>
+  			<br>
+  		</div>
   	</div>
   </body>
 </html>

@@ -60,17 +60,11 @@ public class Servlet_Dest extends HttpServlet
 						}						
 					} catch (RemoteException e) {
 						error = true;
-						msgError = "Error RMI";
+						msgError = "Error de conexion (RMI)";
 					}
-				} catch (MalformedURLException  e) {
+				} catch (MalformedURLException | RemoteException |NotBoundException e) {
 					error = true;
-					msgError = e.getMessage();
-				}catch(RemoteException e){
-					error = true;
-					msgError = e.getMessage();
-				}catch(NotBoundException e){
-					error = true;
-					msgError = e.getMessage();
+					msgError = "Error de conexion (RMI)";
 				}
 					
 	    }
