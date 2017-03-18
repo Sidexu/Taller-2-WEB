@@ -2,44 +2,89 @@
 <jsp:useBean id='arregloDest' scope='application' class='java.util.ArrayList' />  
 <jsp:useBean id='destino' scope='application' class='java.lang.String' />  
 
-<html>
+<!DOCTYPE html>
+<html lang="en">
   <head>
-    <title> Listado de excursiones por destino </title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Excursiones del diablo</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
   </head>
-
-  <body bgcolor="#B7FFB7">
- <table border="5" width="50%" bordercolor="#00AE00" height="50" bgcolor="#B6F4AA">
-  <tr>
-   <td>
-    <p align="center"><b>
-    <font face="Tahoma" size="4"> Listado de excursiones para el destino : ${destino} </font></b>
-   </td>
-  </tr>
- </table> <br>
-
-  <table border="2" width="50%" bordercolor="#00AE00" height="50" bgcolor="#B6F4AA">
-   <tr>
-    <td><b> Codigo </b></td>
-    <td><b> Destino </b></td>
-    <td><b> Hora Partida </b></td>
-    <td><b> Hora Regreso </b></td>
-    <td><b> Precio base </b></td>
-    <td><b> Cantidad disponible </b></td>
-   </tr>
-   <c:forEach items="${arregloDest}" var="i" >
-    <tr>
-     <td> ${i.codigo} </td>
-     <td> ${i.destino} </td>
-     <td> ${i.hr_partida.getHora()}:${i.hr_partida.getMin()} </td>
-     <td> ${i.hr_regreso.getHora()}:${i.hr_regreso.getMin()} </td>
-     <td> ${i.precioBase} </td>
-     <td> ${i.cant_disponibles} </td>
-    </tr>
-   </c:forEach>     
+  <body>
+  	<div class="row" style="margin-left: 10px;">
+  	
+  		<h1> Excursiones del Diablo</h1>
   
- </table>
+  	</div>
+    
 
- <p><a href='inicio.jsp'>Volver a inicio</a></p>
-  
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    
+    
+    <div class="row">
+  		<div class="col-md-6 col-md-offset-3">
+  			<ul class="nav nav-tabs">
+			  <li >
+			    <a href='inicio.jsp'>Home</a>
+			  </li>
+			  <li ><a href='ingreso_precio.jsp'>Excursiones por precio</a></li>
+			  <li class="active"><a href='ingreso_dest.jsp'>Excursiones por destino</a></li>
+			  
+			</ul>
+  		</div>	
+  	</div>
+	<div class="row">
+  		<div class="col-md-6 col-md-offset-3">
+  			<br>  			
+  			<table class="table table-hover">
+  			<tr>
+			   <td>
+			    <p align="center"><b>
+			    <font face="Tahoma" size="4"> Listado de excursiones para el destino : ${destino} </font></b>
+			   </td>
+			  </tr>
+			 </table> <br>
+			
+			  <table class="table table-hover">
+			   <tr>
+			    <td><b> Codigo </b></td>
+			    <td><b> Destino </b></td>
+			    <td><b> Hora Partida </b></td>
+			    <td><b> Hora Regreso </b></td>
+			    <td><b> Precio base </b></td>
+			    <td><b> Cantidad disponible </b></td>
+			   </tr>
+			   <c:forEach items="${arregloDest}" var="i" >
+			    <tr>
+			     <td> ${i.codigo} </td>
+			     <td> ${i.destino} </td>
+			     <td> ${i.hr_partida.getHora()}:${i.hr_partida.getMin()} </td>
+			     <td> ${i.hr_regreso.getHora()}:${i.hr_regreso.getMin()} </td>
+			     <td> ${i.precioBase} </td>
+			     <td> ${i.cant_disponibles} </td>
+			    </tr>
+			   </c:forEach>     
+  			</table>
+	
+  		</div>
+  	</div>
+	
   </body>
 </html>
+
+
+
