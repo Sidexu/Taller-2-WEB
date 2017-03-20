@@ -5,7 +5,7 @@
     <reloadable>true</reloadable>
     <redirectLogger>false</redirectLogger>
     <updateXml>false</updateXml>
-    <warLocation>C:\Users\Alex\Desktop\pruebaWEB.war</warLocation>
+    <warLocation>d:\Users\e299227\Desktop\Taller2web.war</warLocation>
     <extraInfo></extraInfo>
     <webPath>/Taller-2-WEB</webPath>
 </tomcatProjectProperties>
