@@ -2,7 +2,7 @@ package Logica.valueObjects;
 
 import java.io.Serializable;
 
-import Logica.Hora;
+import defaultP.Hora;
 
 public class VOExcursionDisp extends VOExcursion implements Serializable{
 	private int cant_disponibles;

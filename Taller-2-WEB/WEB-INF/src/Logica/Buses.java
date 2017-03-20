@@ -7,6 +7,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.TreeMap;
 
+import defaultP.Hora;
+
 public class Buses implements Serializable {
 	private TreeMap<String,Bus> TM;
 	

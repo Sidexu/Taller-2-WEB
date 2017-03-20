@@ -1,7 +1,7 @@
 package Logica;
 import java.io.Serializable;
 
-import Logica.Hora;
+import defaultP.Hora;
 import Logica.Boletos;
 import Logica.Bus;
 
